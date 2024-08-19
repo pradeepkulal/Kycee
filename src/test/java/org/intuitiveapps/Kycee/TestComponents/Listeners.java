@@ -1,6 +1,5 @@
 package org.intuitiveapps.Kycee.TestComponents;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.intuitiveapps.Kycee.Resources.ExtentReporterNG;
@@ -16,11 +15,11 @@ import com.aventstack.extentreports.Status;
 public class Listeners extends BaseTest implements ITestListener {
 	ExtentTest test;
 	ExtentReports extent= ExtentReporterNG.getReporterObject();
-	ThreadLocal<ExtentTest> extentTest= new ThreadLocal<ExtentTest>();
+	private static ThreadLocal<ExtentTest> extentTest= new ThreadLocal<ExtentTest>(); // Making Thread safe
 	@Override
 	public void onTestStart(ITestResult result) {
 		test= extent.createTest(result.getMethod().getMethodName());
-		extentTest.set(test);
+		extentTest.set(test); //Will assign new thread ID
 	}
 	@Override
 	public void onTestSuccess(ITestResult result) {
@@ -51,7 +50,6 @@ public class Listeners extends BaseTest implements ITestListener {
 	}
 	@Override
 	public void onFinish(ITestContext result) {
-		extent.flush();
 	}
 	
 }

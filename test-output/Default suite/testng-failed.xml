@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.intuitiveapps.Kycee.Tests.LoginTest">
+      <class name="org.intuitiveapps.Kycee.Tests.GurujiTest">
         <methods>
-          <include name="loginWithInvalidPassword"/>
-          <include name="loginWithInvalidEmail"/>
-          <include name="loginWithSuperAdmin"/>
           <include name="tearDown"/>
+          <include name="createExpensesTest"/>
           <include name="launchApplication"/>
         </methods>
-      </class> <!-- org.intuitiveapps.Kycee.Tests.LoginTest -->
+      </class> <!-- org.intuitiveapps.Kycee.Tests.GurujiTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

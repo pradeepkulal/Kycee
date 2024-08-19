@@ -28,8 +28,10 @@ public class SignUpPage extends AbstractComponents {
 	@FindBy(xpath = "//input[@value='Submit']") WebElement submitBtn;
 	@FindBy(partialLinkText  = "/login") WebElement loginPageBtn;
 	@FindBy(css="[class*='Toastify__toast-body']") WebElement ToastMsg;
+	@FindBy (xpath = "//h3[text()='Sign Up']")
+	private WebElement forgotsignUpPageTiitle;
 	
-	public void fillTheForm(String firstName,String lastName,String emailID,String phoneNumber,String password,
+	public void fillTheSignUPForm(String firstName,String lastName,String emailID,String phoneNumber,String password,
 			String confirmPassword,String companyName,String cinNumber,String gstin) {
 		firstNameInput.sendKeys(firstName);
 		lastNameInput.sendKeys(lastName);
@@ -41,6 +43,16 @@ public class SignUpPage extends AbstractComponents {
 		companyNameInput.sendKeys(companyName);
 		cinNumberInput.sendKeys(cinNumber);
 		gstinInput.sendKeys(gstin);
+		submitBtn.click();
+	}
+	public void fillTheSignUpForm(String firstName,String lastName,String emailID,String phoneNumber,String password,
+			String confirmPassword) {
+		firstNameInput.sendKeys(firstName);
+		lastNameInput.sendKeys(lastName);
+		emailIDInput.sendKeys(emailID);
+		phoneNumberInput.sendKeys(phoneNumber);
+		passwordInput.sendKeys(password);
+		confirmPasswordInput.sendKeys(confirmPassword);
 		submitBtn.click();
 	}
 	

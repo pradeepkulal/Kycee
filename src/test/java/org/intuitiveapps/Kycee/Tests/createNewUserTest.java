@@ -15,8 +15,8 @@ import org.intuitiveapps.Kycee.Utilities.EmailUilities;
 import org.testng.annotations.Test;
 
 public class createNewUserTest extends BaseTest {
-	private String adminEmail="jagesh.g@yopmail.com", adminPassword="Test@123",
-			userFirstName="harish",userLastName="shetty",userEmail="shetty.harish@yopmail.com";
+	private String adminEmail="pradeep123456@yopmail.com", adminPassword="Test@123",
+			userFirstName="harisha",userLastName="shetty",userEmail="shetty.harisha34@yopmail.com";
 
 	@Test
 	public void createNewUser() throws InterruptedException {

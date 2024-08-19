@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
-import org.checkerframework.checker.units.qual.A;
-import org.intuitiveapps.Kycee.PageObjects.BlogsPage;
 import org.intuitiveapps.Kycee.PageObjects.LoginPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -27,12 +25,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	public WebDriver driver;
-	public LoginPage lp;
+	public LoginPage loginPage;
 	public WebDriver emailDriver;
 	public WebDriver intializeBrowser() throws IOException {
 		Properties prop =new Properties();
 		FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
 		prop.load(fis);
+		
 		String browserName=prop.getProperty("browser");
 		if(browserName.equalsIgnoreCase("chrome")){
 		//	WebDriverManager.chromedriver().clearResolutionCache().setup();
@@ -61,14 +60,16 @@ public class BaseTest {
 	@BeforeMethod(alwaysRun = true)
 	public LoginPage launchApplication() throws IOException {
 		driver =intializeBrowser();
-		lp=new LoginPage(driver);
-		lp.goTo();
-		return lp;
+		loginPage=new LoginPage(driver);
+		loginPage.goTo();
+		return loginPage;
 	}
+	
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
-		driver.close();
+	 	driver.close();
 	}
+
 	public String getScreenShot(String testCaseName,WebDriver driver) throws IOException {
 		TakesScreenshot ts= (TakesScreenshot)driver;
 		File source= ts.getScreenshotAs(OutputType.FILE);
@@ -76,4 +77,6 @@ public class BaseTest {
 		FileUtils.copyFile(source, dest);
 		return System.getProperty("user.dir")+"//screnshots//"+testCaseName+".png";
 	}
+	
+	
 }
