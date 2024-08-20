@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="17" passed="16" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-20T13:20:55 IST" name="Suite" finished-at="2024-08-20T13:21:58 IST" duration-ms="62710">
+  <suite started-at="2024-08-20T16:15:31 IST" name="Suite" finished-at="2024-08-20T16:25:03 IST" duration-ms="572721">
     <groups>
     </groups>
-    <test started-at="2024-08-20T13:20:55 IST" name="Test" finished-at="2024-08-20T13:21:58 IST" duration-ms="62710">
+    <test started-at="2024-08-20T16:15:31 IST" name="Sign Up Test" finished-at="2024-08-20T16:17:28 IST" duration-ms="117312">
       <class name="org.intuitiveapps.Kycee.Tests.SignUpPageTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@3d526ad9]" started-at="2024-08-20T13:20:55 IST" name="launchApplication" finished-at="2024-08-20T13:21:01 IST" duration-ms="5652" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:15:31 IST" name="launchApplication" finished-at="2024-08-20T16:15:41 IST" duration-ms="9895" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="validateErrorMessageInSignUpPage()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@3d526ad9]" started-at="2024-08-20T13:21:01 IST" name="validateErrorMessageInSignUpPage" finished-at="2024-08-20T13:21:58 IST" duration-ms="56805" status="FAIL">
+        <test-method signature="validateErrorMessageInSignUpPage()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:15:41 IST" name="validateErrorMessageInSignUpPage" finished-at="2024-08-20T16:16:30 IST" duration-ms="49926" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateErrorMessageInSignUpPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:16:30 IST" name="tearDown" finished-at="2024-08-20T16:16:31 IST" duration-ms="89" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:16:31 IST" name="launchApplication" finished-at="2024-08-20T16:16:36 IST" duration-ms="5259" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="SignUpAsCustumerWithValidData()[pri:1, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:16:36 IST" name="SignUpAsCustumerWithValidData" finished-at="2024-08-20T16:16:51 IST" duration-ms="15311" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SignUpAsCustumerWithValidData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:16:51 IST" name="tearDown" finished-at="2024-08-20T16:16:51 IST" duration-ms="108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:16:51 IST" name="launchApplication" finished-at="2024-08-20T16:16:57 IST" duration-ms="5991" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="SignUpAsBusiessAdminWithValidData()[pri:2, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:16:57 IST" name="SignUpAsBusiessAdminWithValidData" finished-at="2024-08-20T16:17:15 IST" duration-ms="17675" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SignUpAsBusiessAdminWithValidData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:17:15 IST" name="tearDown" finished-at="2024-08-20T16:17:15 IST" duration-ms="88" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:17:15 IST" name="launchApplication" finished-at="2024-08-20T16:17:19 IST" duration-ms="4295" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="SignUpAsBusiessAdminWithoutCIN()[pri:3, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:17:19 IST" name="SignUpAsBusiessAdminWithoutCIN" finished-at="2024-08-20T16:17:28 IST" duration-ms="8382" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[The following asserts failed:
-expected [The email address provided is not valid.] but found [Kindly enter a valid email address.],
-expected [The phone number provided is not valid.] but found [Phone number is not valid],
-expected [Password Error Message is not proper] but found [Please provide a valid password.],
-expected [Confirm password Error Message is not proper] but found [Please confirm your password and ensure it matches the original.],
-expected [Company Name Error Message is not proper] but found [Please enter a valid company name.]]]>
+              <![CDATA[expected [New account created.] but found [[[ChromeDriver: chrome on windows (e9e8fd787df54ab9424e19cbb1a5e66a)] -> xpath: //div[contains(@class,'Toastify__toast ')]]]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The following asserts failed:
-expected [The email address provided is not valid.] but found [Kindly enter a valid email address.],
-expected [The phone number provided is not valid.] but found [Phone number is not valid],
-expected [Password Error Message is not proper] but found [Please provide a valid password.],
-expected [Confirm password Error Message is not proper] but found [Please confirm your password and ensure it matches the original.],
-expected [Company Name Error Message is not proper] but found [Please enter a valid company name.]
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-at org.intuitiveapps.Kycee.Tests.SignUpPageTest.validateErrorMessageInSignUpPage(SignUpPageTest.java:45)
+              <![CDATA[java.lang.AssertionError: expected [New account created.] but found [[[ChromeDriver: chrome on windows (e9e8fd787df54ab9424e19cbb1a5e66a)] -> xpath: //div[contains(@class,'Toastify__toast ')]]]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:644)
+at org.intuitiveapps.Kycee.Tests.SignUpPageTest.SignUpAsBusiessAdminWithoutCIN(SignUpPageTest.java:78)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -47,29 +76,183 @@ at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 at org.testng.TestRunner.privateRun(TestRunner.java:819)
 at org.testng.TestRunner.run(TestRunner.java:619)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-at org.testng.TestNG.runSuites(TestNG.java:1134)
-at org.testng.TestNG.run(TestNG.java:1101)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateErrorMessageInSignUpPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@3d526ad9]" started-at="2024-08-20T13:21:58 IST" name="tearDown" finished-at="2024-08-20T13:21:58 IST" duration-ms="89" status="PASS">
+        </test-method> <!-- SignUpAsBusiessAdminWithoutCIN -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.SignUpPageTest@4648ce9]" started-at="2024-08-20T16:17:28 IST" name="tearDown" finished-at="2024-08-20T16:17:28 IST" duration-ms="83" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- org.intuitiveapps.Kycee.Tests.SignUpPageTest -->
-    </test> <!-- Test -->
+    </test> <!-- Sign Up Test -->
+    <test started-at="2024-08-20T16:15:31 IST" name="Login Test" finished-at="2024-08-20T16:25:03 IST" duration-ms="572721">
+      <class name="org.intuitiveapps.Kycee.Tests.LoginTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:15:31 IST" name="launchApplication" finished-at="2024-08-20T16:15:40 IST" duration-ms="9019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithSuperAdmin()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:15:40 IST" name="loginWithSuperAdmin" finished-at="2024-08-20T16:17:08 IST" duration-ms="88735" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithSuperAdmin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:17:08 IST" name="tearDown" finished-at="2024-08-20T16:17:08 IST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:17:08 IST" name="launchApplication" finished-at="2024-08-20T16:17:13 IST" duration-ms="4418" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithCustomer()[pri:1, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:17:13 IST" name="loginWithCustomer" finished-at="2024-08-20T16:18:36 IST" duration-ms="83319" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithCustomer -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:18:36 IST" name="tearDown" finished-at="2024-08-20T16:18:36 IST" duration-ms="77" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:18:36 IST" name="launchApplication" finished-at="2024-08-20T16:18:41 IST" duration-ms="4645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithBusinessAdmin()[pri:2, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:18:41 IST" name="loginWithBusinessAdmin" finished-at="2024-08-20T16:20:02 IST" duration-ms="81240" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithBusinessAdmin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:20:02 IST" name="tearDown" finished-at="2024-08-20T16:20:02 IST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:20:02 IST" name="launchApplication" finished-at="2024-08-20T16:20:11 IST" duration-ms="8668" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithBusinessUser()[pri:3, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:20:11 IST" name="loginWithBusinessUser" finished-at="2024-08-20T16:21:44 IST" duration-ms="92771" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithBusinessUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:21:44 IST" name="tearDown" finished-at="2024-08-20T16:21:44 IST" duration-ms="84" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:21:44 IST" name="launchApplication" finished-at="2024-08-20T16:21:48 IST" duration-ms="4695" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithBlogger()[pri:4, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:21:48 IST" name="loginWithBlogger" finished-at="2024-08-20T16:23:08 IST" duration-ms="79374" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithBlogger -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:08 IST" name="tearDown" finished-at="2024-08-20T16:23:08 IST" duration-ms="88" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:08 IST" name="launchApplication" finished-at="2024-08-20T16:23:14 IST" duration-ms="5737" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithInvalidEmail()[pri:5, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:14 IST" name="loginWithInvalidEmail" finished-at="2024-08-20T16:23:22 IST" duration-ms="8473" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithInvalidEmail -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:22 IST" name="tearDown" finished-at="2024-08-20T16:23:22 IST" duration-ms="79" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:22 IST" name="launchApplication" finished-at="2024-08-20T16:23:27 IST" duration-ms="5268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithInvalidPassword()[pri:6, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:27 IST" name="loginWithInvalidPassword" finished-at="2024-08-20T16:23:36 IST" duration-ms="8405" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithInvalidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:36 IST" name="tearDown" finished-at="2024-08-20T16:23:36 IST" duration-ms="39" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:36 IST" name="launchApplication" finished-at="2024-08-20T16:23:41 IST" duration-ms="5029" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithInvalidEmailFormat()[pri:7, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:41 IST" name="loginWithInvalidEmailFormat" finished-at="2024-08-20T16:23:47 IST" duration-ms="6358" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithInvalidEmailFormat -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:47 IST" name="tearDown" finished-at="2024-08-20T16:23:47 IST" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:47 IST" name="launchApplication" finished-at="2024-08-20T16:23:55 IST" duration-ms="7882" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithEmptyEmail()[pri:8, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:23:55 IST" name="loginWithEmptyEmail" finished-at="2024-08-20T16:24:03 IST" duration-ms="7465" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithEmptyEmail -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:03 IST" name="tearDown" finished-at="2024-08-20T16:24:03 IST" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:03 IST" name="launchApplication" finished-at="2024-08-20T16:24:07 IST" duration-ms="4326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithEmptyPassword()[pri:8, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:07 IST" name="loginWithEmptyPassword" finished-at="2024-08-20T16:24:14 IST" duration-ms="6888" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithEmptyPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:14 IST" name="tearDown" finished-at="2024-08-20T16:24:14 IST" duration-ms="40" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:14 IST" name="launchApplication" finished-at="2024-08-20T16:24:19 IST" duration-ms="4886" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithInActiveUser()[pri:9, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:19 IST" name="loginWithInActiveUser" finished-at="2024-08-20T16:24:28 IST" duration-ms="8830" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithInActiveUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:28 IST" name="tearDown" finished-at="2024-08-20T16:24:28 IST" duration-ms="36" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:28 IST" name="launchApplication" finished-at="2024-08-20T16:24:38 IST" duration-ms="10094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginWithInTerminatedUser()[pri:10, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:38 IST" name="loginWithInTerminatedUser" finished-at="2024-08-20T16:24:48 IST" duration-ms="9593" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithInTerminatedUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:48 IST" name="tearDown" finished-at="2024-08-20T16:24:48 IST" duration-ms="36" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:48 IST" name="launchApplication" finished-at="2024-08-20T16:24:54 IST" duration-ms="6183" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="navigationToForgotPasswordPage()[pri:11, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:24:54 IST" name="navigationToForgotPasswordPage" finished-at="2024-08-20T16:25:03 IST" duration-ms="9509" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigationToForgotPasswordPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.intuitiveapps.Kycee.Tests.LoginTest@40005471]" started-at="2024-08-20T16:25:03 IST" name="tearDown" finished-at="2024-08-20T16:25:03 IST" duration-ms="41" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.intuitiveapps.Kycee.Tests.LoginTest -->
+    </test> <!-- Login Test -->
   </suite> <!-- Suite -->
 </testng-results>

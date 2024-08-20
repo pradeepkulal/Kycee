@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.imageio.ImageIO;
-import org.intuitiveapps.Kycee.*;
 import org.intuitiveapps.Kycee.Resources.ExtentReporterNG;
 import org.intuitiveapps.Kycee.Utilities.ConfigurationData;
 import org.openqa.selenium.By;
@@ -31,12 +30,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentReporter;
 import java.io.File;
 
 
@@ -51,7 +44,7 @@ public class AbstractComponents extends ConfigurationData {
 
 	@FindBy(xpath =  "//div[contains(@class,'Toastify__toast ')]")
 	public WebElement toastMessage;
-	@FindBy(className = "tooltip-customize")
+	@FindBy(xpath = "//div[@class='tooltip-customize']")
 	WebElement validationMessage;
 	@FindBy(xpath = "//div[@class='loader']")
 	public WebElement loader;
@@ -92,7 +85,6 @@ public class AbstractComponents extends ConfigurationData {
 		awaitForElementPresence(driver, element, timeOutInSeconds);
 		Actions actions = new Actions(driver);
 		actions.moveToElement(element).build().perform();
-		waitForSeconds(2);
 	}
 
 	public static boolean awaitForElementPresence(WebDriver driver, WebElement element, int timeOutInSeconds){
@@ -121,8 +113,8 @@ public class AbstractComponents extends ConfigurationData {
 		return  toastMessage;
 
 	}
+	
 	public WebElement getValidationMessage() {
-		  waitForElementVisibility(driver,validationMessage , timeOut);
 		  return validationMessage;
 	}
 	
@@ -327,8 +319,8 @@ public class AbstractComponents extends ConfigurationData {
 	}
 
 	public static String verifyTextOfthWebEement(WebElement ele, String expectedText) {
-		waitForSeconds(1);
-		moveCursorToWebElement(ele, timeOut);
+		waitForSeconds(2);
+	//	moveCursorToWebElement(ele, timeOut);
 		String actualText = getTextOfWebElement(ele);
 
 		if (actualText.equals(expectedText)) {
@@ -339,6 +331,7 @@ public class AbstractComponents extends ConfigurationData {
 			System.err.println("Actual Text:" + ele.getText());
 			System.err.println("Expected Text:"+ expectedText);
 			// Log the error in Extent Report
+			ExtentReporterNG.logError(ele, actualText, expectedText);
 			return ele.getText();
 		}
 	}

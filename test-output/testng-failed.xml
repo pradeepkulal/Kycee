@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="org.intuitiveapps.Kycee.TestComponents.Listeners"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" parallel="tests" name="Sign Up Test(failed)">
     <classes>
       <class name="org.intuitiveapps.Kycee.Tests.SignUpPageTest">
         <methods>
+          <include name="SignUpAsBusiessAdminWithoutCIN"/>
           <include name="tearDown"/>
-          <include name="validateErrorMessageInSignUpPage"/>
           <include name="launchApplication"/>
         </methods>
       </class> <!-- org.intuitiveapps.Kycee.Tests.SignUpPageTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Sign Up Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
