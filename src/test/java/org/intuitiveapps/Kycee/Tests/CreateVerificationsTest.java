@@ -3,6 +3,7 @@ package org.intuitiveapps.Kycee.Tests;
 
 import org.intuitiveapps.Kycee.PageObjects.CreateVerificationsPage;
 import org.intuitiveapps.Kycee.PageObjects.DashBoardPage;
+import org.intuitiveapps.Kycee.PageObjects.LoginPage;
 import org.intuitiveapps.Kycee.PageObjects.VerificationsListingPage;
 import org.intuitiveapps.Kycee.TestComponents.BaseTest;
 import org.testng.Assert;
@@ -14,6 +15,7 @@ public class CreateVerificationsTest extends BaseTest {
 	
 	@Test
 	public void successFullyCreatingEmailTypeVerificationTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="prakash.kula137@yopmail.com", phoneNumber="9900234123", type="instant";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -29,6 +31,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test(dependsOnMethods = {"successFullyCreatingEmailTypeVerificationTest"})
 	public void creatingEmailTypeVerificationWithAlreadyUsedEmailTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="suresh",lastName="Kulal", email="prakash.kula13@yopmail.com", phoneNumber="9900234123", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -39,6 +42,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createVerificationWithoutFirstNameTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="9108748776", type="whatsApp";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -49,6 +53,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createEmailTypeVerificationWithoutEmailIDTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="", phoneNumber="9108748776", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -59,6 +64,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createWhatsAppTypeVerificationWithoutEmailIDTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="", phoneNumber="9108748776", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -69,6 +75,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createEmailTypeVerificationWithMissingDomainInEmailIDTest1() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="karthik.v@.com", phoneNumber="9108748776", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -79,6 +86,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createEmailTypeVerificationWithOutAtSymbolinEmail() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="karthik.vyopmail.com", phoneNumber="9108748776", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -89,6 +97,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createEmailTypeVerificationWithoutComInEmail() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="karthik.v@yopmail.", phoneNumber="9108748776", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -99,6 +108,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createWhatsAppTypeVerificationWithoutPhoneNUmberTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="", type="whatsApp";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -109,6 +119,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createEmailTypeVerificationWithoutPhoneNumberTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -119,6 +130,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createWhatsAppTypeVerificationWithPhoneNumberLessThen10CharactersTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="99990", type="whatsapp";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -129,6 +141,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void createWhatsAppTypeVerificationWithUnregisteredPhoneNumberTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="pradeep",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="99990123456", type="whatsapp";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -139,6 +152,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void successFullyCreatingEmailTypeVerificationWithoutLastNameTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="suresh",lastName="", email="prakash123@yopmail.com", phoneNumber="9900234123", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -154,6 +168,7 @@ public class CreateVerificationsTest extends BaseTest {
 	
 	@Test
 	public void successFullyCreatingWhatsAppTypeVerificationTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="suresh",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="9108748776", type="whatsApp";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -168,6 +183,7 @@ public class CreateVerificationsTest extends BaseTest {
 	
 	@Test
 	public void saveAndNextButtonForInstantVerificationTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="suresh",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="9108748776", type="instant";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -177,6 +193,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void submitButtonForEmailtVerificationTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="suresh",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="9108748776", type="email";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();
@@ -186,6 +203,7 @@ public class CreateVerificationsTest extends BaseTest {
 	}
 	@Test
 	public void submitButtonForWhatsAppVerificationTest() throws InterruptedException {
+		LoginPage loginPage = homePage.validateSignInButton();
 		String firstName="suresh",lastName="Kulal", email="prakash13@yopmail.com", phoneNumber="9108748776", type="whatsapp";
 		DashBoardPage dashBoardPage= loginPage.loginApplication(loginEmail, password);
 		VerificationsListingPage verificationListingPage= dashBoardPage.gotoVerificationsListingPage();

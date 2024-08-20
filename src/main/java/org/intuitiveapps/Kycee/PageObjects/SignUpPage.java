@@ -33,27 +33,29 @@ public class SignUpPage extends AbstractComponents {
 	
 	public void fillTheSignUPForm(String firstName,String lastName,String emailID,String phoneNumber,String password,
 			String confirmPassword,String companyName,String cinNumber,String gstin) {
-		firstNameInput.sendKeys(firstName);
-		lastNameInput.sendKeys(lastName);
-		emailIDInput.sendKeys(emailID);
-		phoneNumberInput.sendKeys(phoneNumber);
-		passwordInput.sendKeys(password);
-		confirmPasswordInput.sendKeys(confirmPassword);
-		yesCheckBox.click();
-		companyNameInput.sendKeys(companyName);
-		cinNumberInput.sendKeys(cinNumber);
-		gstinInput.sendKeys(gstin);
+		enterData(firstNameInput, firstName);
+		enterData(lastNameInput, lastName);
+		enterData(emailIDInput, emailID);
+		enterData(phoneNumberInput, phoneNumber);
+		enterData(passwordInput, password);
+		enterData(confirmPasswordInput, confirmPassword);
+		clickElement(yesCheckBox);
+		enterData(companyNameInput, companyName);
+		enterData(cinNumberInput, cinNumber);
+		enterData(gstinInput, gstin);
 		submitBtn.click();
 	}
+	
 	public void fillTheSignUpForm(String firstName,String lastName,String emailID,String phoneNumber,String password,
 			String confirmPassword) {
-		firstNameInput.sendKeys(firstName);
-		lastNameInput.sendKeys(lastName);
-		emailIDInput.sendKeys(emailID);
-		phoneNumberInput.sendKeys(phoneNumber);
-		passwordInput.sendKeys(password);
-		confirmPasswordInput.sendKeys(confirmPassword);
+		enterData(firstNameInput, firstName);
+		enterData(lastNameInput, lastName);
+		enterData(emailIDInput, emailID);
+		enterData(phoneNumberInput, phoneNumber);
+		enterData(passwordInput, password);
+		enterData(confirmPasswordInput, confirmPassword);
 		submitBtn.click();
+		waitForSeconds(2);
 	}
 	
 }

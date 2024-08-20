@@ -1,6 +1,5 @@
 package org.intuitiveapps.Kycee.AbstractComponents;
 
-
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.time.Duration;
@@ -11,9 +10,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import javax.imageio.ImageIO;
-
+import org.intuitiveapps.Kycee.*;
 import org.intuitiveapps.Kycee.Resources.ExtentReporterNG;
 import org.intuitiveapps.Kycee.Utilities.ConfigurationData;
 import org.openqa.selenium.By;
@@ -33,16 +31,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentReporter;
-
 import java.io.File;
 
 
 public class AbstractComponents extends ConfigurationData {
-	WebDriver driver;
+	static WebDriver driver;
 
 	public AbstractComponents(WebDriver driver) {
 		this.driver = driver;
@@ -54,7 +53,7 @@ public class AbstractComponents extends ConfigurationData {
 	public WebElement toastMessage;
 	@FindBy(className = "tooltip-customize")
 	WebElement validationMessage;
-	@FindBy(css = "digits")
+	@FindBy(xpath = "//div[@class='loader']")
 	public WebElement loader;
 	@FindBy(id = "dashboard")
 	public WebElement dashboardIcon;
@@ -62,12 +61,12 @@ public class AbstractComponents extends ConfigurationData {
 
 	public void waitForElementToAppear(By findBy) {
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 	}
 
-	public void waitForWebElementToAppear(WebElement findBy) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	public static void waitForWebElementToAppear(WebElement findBy) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(findBy));
 	}
 
@@ -75,12 +74,12 @@ public class AbstractComponents extends ConfigurationData {
 
 	public void waitForLoaderToDisappear() throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.invisibilityOf(loader));
 	}
 	public void waitForElementToDisappear(WebElement ele) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.invisibilityOf(ele));
 	}
 
@@ -89,14 +88,14 @@ public class AbstractComponents extends ConfigurationData {
 		dropdown.selectByVisibleText(visibleText);
 	}
 
-	public void moveCursorToWebElement( WebElement element, int timeOutInSeconds){
+	public static void moveCursorToWebElement( WebElement element, int timeOutInSeconds){
 		awaitForElementPresence(driver, element, timeOutInSeconds);
 		Actions actions = new Actions(driver);
 		actions.moveToElement(element).build().perform();
 		waitForSeconds(2);
 	}
 
-	public boolean awaitForElementPresence(WebDriver driver, WebElement element, int timeOutInSeconds){
+	public static boolean awaitForElementPresence(WebDriver driver, WebElement element, int timeOutInSeconds){
 		try {
 			waitForElementVisibility(driver, element, timeOutInSeconds);
 			return true;
@@ -104,12 +103,12 @@ public class AbstractComponents extends ConfigurationData {
 			return false;
 		}
 	}
-	private WebElement waitForElementVisibility(WebDriver driver, WebElement element, int timeOutInSeconds){
+	private static WebElement waitForElementVisibility(WebDriver driver, WebElement element, int timeOutInSeconds){
 		return (new WebDriverWait(driver , Duration.ofSeconds(timeOutInSeconds))).until(
 				ExpectedConditions.visibilityOf(element));
 	}
 
-	public void waitForSeconds(int second){
+	public static void waitForSeconds(int second){
 		try{
 			Thread.sleep(second * 1000L);
 		}catch (Exception e){
@@ -117,16 +116,18 @@ public class AbstractComponents extends ConfigurationData {
 		}
 	}
 
-	public String getToastMessage() throws InterruptedException {
+	public WebElement getToastMessage() throws InterruptedException {
 		waitForWebElementToAppear(toastMessage);
-		return  toastMessage.getText();
+		return  toastMessage;
 
 	}
-	public String getValidationMessage() {
-		return  waitForElementVisibility(driver,validationMessage , 3).getText();
+	public WebElement getValidationMessage() {
+		  waitForElementVisibility(driver,validationMessage , timeOut);
+		  return validationMessage;
 	}
+	
 	public Boolean isElementDisplayed(WebElement element) {
-		return awaitForElementPresence(driver, element, 5);	
+		return awaitForElementPresence(driver, element, timeOut);	
 	}
 
 	public void clickOnColumnHeader(String columnName) {
@@ -136,7 +137,7 @@ public class AbstractComponents extends ConfigurationData {
 	}
 
 	public void goToDashboardPageUsingNavigation() {
-		moveCursorToWebElement(dashboardIcon, 5);
+		moveCursorToWebElement(dashboardIcon, timeOut);
 		dashboardIcon.click();
 	}
 
@@ -194,9 +195,9 @@ public class AbstractComponents extends ConfigurationData {
 		return elementsChecked.size() == elements.length;
 	}
 
-	public boolean isElementClickable(WebElement element,WebDriver driver) {
+	public boolean isElementClickable(WebElement element) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver,   Duration.ofSeconds(30));
+			WebDriverWait wait = new WebDriverWait(driver,   Duration.ofSeconds(timeOut));
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 			return true;
 		} catch (Exception e) {
@@ -204,9 +205,9 @@ public class AbstractComponents extends ConfigurationData {
 		}
 	}
 
-	public void clickElement(WebElement element) {
+	public static void clickElement(WebElement element) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver,   Duration.ofSeconds(30));
+			WebDriverWait wait = new WebDriverWait(driver,   Duration.ofSeconds(timeOut));
 			wait.until(ExpectedConditions.elementToBeClickable(element)).click();
 		} catch (Exception e) {
 			System.out.println("The Button is not Clickable - " + e.getMessage());
@@ -215,16 +216,17 @@ public class AbstractComponents extends ConfigurationData {
 	}
 
 
-	public  String getTextOfWebElement(WebElement element) {
+	public static  String getTextOfWebElement(WebElement element) {
 		waitForWebElementToAppear(element);
 		return element.getText();
 	}
 
 	public List<String> getTextOfWebElements(List<WebElement> elements) {
-		List<String> textOfAllWebElemets = new ArrayList<>();
-		elements.stream()
-		.forEach(element -> textOfAllWebElemets.add(element.getText()));
-		return textOfAllWebElemets;
+		List<String> textOfAllWebElements = new ArrayList<>();
+		for (WebElement element : elements) {
+			textOfAllWebElements.add(element.getText());
+		}
+		return textOfAllWebElements;
 	}
 
 	public  String convertColorToHex(String cssValue,WebElement element) {
@@ -249,6 +251,7 @@ public class AbstractComponents extends ConfigurationData {
 		// TODO Auto-generated method stub
 
 	}
+	
 	public void awaitForWebElementListLoad(List<WebElement> elementList, int timeOutInSeconds){
 		for(int k = 0; k < timeOutInSeconds; k++){
 			if(!(elementList.size() > 0)){
@@ -261,13 +264,17 @@ public class AbstractComponents extends ConfigurationData {
 
 	public List<String> getListElementAttributeValue(List<WebElement> elements, String attributeValue){
 		List<String> listElementText = new ArrayList<>();
-		elements.stream().forEach(element -> listElementText.add(element.getAttribute(attributeValue)));
+		for (WebElement element : elements) {
+			listElementText.add(element.getAttribute(attributeValue));
+		}
 		return listElementText;
 	}
 
 
 	public static void clickOnWebElements(List<WebElement> elements) {
-		elements.stream().forEach(element -> element.click());
+		for (WebElement element : elements) {
+			element.click();
+		}
 	}
 
 
@@ -291,29 +298,23 @@ public class AbstractComponents extends ConfigurationData {
 
 
 	public String getTextOfWebElement(WebDriver driver,WebElement element) {
-		awaitForElementPresence(element, 5);
+		awaitForElementPresence(element, timeOut);
 		return element.getText();
 	}
 
-	public static void verifyBackGroundColorOfTheElement(WebElement ele, String expectedColor) throws IOException {
+	public  void verifyBackGroundColorOfTheElement(WebElement ele, String expectedColor){
 		String actualColor = convertColorToHex("background-color",ele);
-		ExtentTest test = null;
-		ExtentReports extent= ExtentReporterNG.getReporterObject();
-		test= extent.createTest(ele.getText());
 		if (actualColor.equalsIgnoreCase(expectedColor)) {
 			System.out.println(ele.getText() +" Color is Proper");
 			Assert.assertTrue(true, actualColor);
 		}else {
 			System.out.println(ele.getText() +" Color is Not  Proper");
-			test.fail((ele.getText() +" Actual Color: " + actualColor +" Expected Color: " + expectedColor)); 
-			System.out.println(ele.getText().concat(getCurrentTimeInString()));
 			String path = System.getProperty("user.dir")+ "\\ScreenShots\\" + ele.getText().concat(getCurrentTimeInString()) + ".png";
 			takeScreenShot(ele, path);
-			test.addScreenCaptureFromPath(path);
 		}
 	}
 
-	public static boolean verifyColorOfTheElement(WebElement ele, String expectedColor) {
+	public  boolean verifyColorOfTheElement(WebElement ele, String expectedColor) {
 		String actualColor = convertColorToHex("color",ele);
 
 		if (actualColor.equalsIgnoreCase(expectedColor)) {
@@ -325,18 +326,20 @@ public class AbstractComponents extends ConfigurationData {
 		}
 	}
 
-	public  boolean verifyTextOfthWebEement(WebElement ele, String expectedText) {
+	public static String verifyTextOfthWebEement(WebElement ele, String expectedText) {
 		waitForSeconds(1);
-		moveCursorToWebElement(ele, 30);
+		moveCursorToWebElement(ele, timeOut);
 		String actualText = getTextOfWebElement(ele);
 
 		if (actualText.equals(expectedText)) {
 			System.out.println(ele.getText() +" Text is proper");
 			Assert.assertTrue(true, actualText);
-			return true;
+			return ele.getText();
 		}else {
-			System.out.println(ele.getText() +" Text is Not  Proper");
-			return false;
+			System.err.println("Actual Text:" + ele.getText());
+			System.err.println("Expected Text:"+ expectedText);
+			// Log the error in Extent Report
+			return ele.getText();
 		}
 	}
 
@@ -393,7 +396,6 @@ public class AbstractComponents extends ConfigurationData {
 		try {
 			FileHandler.copy(screenshot, destination);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -421,7 +423,7 @@ public class AbstractComponents extends ConfigurationData {
 	}
 
 	public  List<String> getFirstRowDetails(WebElement ele) {
-		awaitForElementPresence(ele, 20);
+		awaitForElementPresence(ele, timeOut);
 		String[] text= ele.getText().toLowerCase().split("\n");
 		List<String> firstRowDetails= Arrays.asList(text);
 		return firstRowDetails;

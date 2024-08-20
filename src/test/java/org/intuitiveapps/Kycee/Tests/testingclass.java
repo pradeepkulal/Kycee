@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 public class testingclass extends BaseTest{
 @Test
 public void testing() throws Exception {
+	LoginPage loginPage = homePage.validateSignInButton();
 	String firstName="suresh",lastName="Kulal", email="prakash.kula13@yopmail.com", phoneNumber="9900234123", type="email";
 	DashBoardPage dashBoardPage= loginPage.loginApplication("karthik.v@yopmail.com", "Test@123");
 	System.out.println(dashBoardPage.getCreditsAvailableCount());

@@ -6,19 +6,13 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="org.intuitiveapps.Kycee.Tests.ChangePasswordTest">
+      <class name="org.intuitiveapps.Kycee.Tests.SignUpPageTest">
         <methods>
-          <include name="changePasswordWithEmptyOldPasswordfield"/>
-          <include name="successfullyChangingPassword"/>
-          <include name="successfullyChangingPasswordAfterFifteenMinutes"/>
           <include name="tearDown"/>
+          <include name="validateErrorMessageInSignUpPage"/>
           <include name="launchApplication"/>
-          <include name="changePasswordUsingLastThreePassword"/>
-          <include name="changingPasswordWithInvalidOldPassword"/>
-          <include name="changePasswordThreeTimesWithinTwentyFourHours"/>
-          <include name="ChangingPasswordWithinFiveMinutes"/>
         </methods>
-      </class> <!-- org.intuitiveapps.Kycee.Tests.ChangePasswordTest -->
+      </class> <!-- org.intuitiveapps.Kycee.Tests.SignUpPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

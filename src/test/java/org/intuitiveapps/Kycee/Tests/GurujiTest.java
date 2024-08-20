@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.intuitiveapps.Kycee.PageObjects.CreateVerificationsPage;
 import org.intuitiveapps.Kycee.PageObjects.DashBoardPage;
+import org.intuitiveapps.Kycee.PageObjects.LoginPage;
 import org.intuitiveapps.Kycee.PageObjects.VerificationsListingPage;
 import org.intuitiveapps.Kycee.TestComponents.BaseTest;
 import org.testng.annotations.Test;
@@ -13,6 +14,7 @@ import com.github.javafaker.Faker;
 public class GurujiTest extends BaseTest{
 	@Test(invocationCount = 105)
 	public void createExpensesTest() {
+		LoginPage loginPage = homePage.validateSignInButton();
 		DashBoardPage dBPage= loginPage.loginApplication("admin@gurujibayarea.com", "Admin@123");
 		VerificationsListingPage vlPage = dBPage.gotoDonationListingPage();
 		CreateVerificationsPage cvPage =  vlPage.gotoCreateNewExpensePage();

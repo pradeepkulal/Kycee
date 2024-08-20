@@ -5,9 +5,11 @@ import java.util.Properties;
 import java.io.IOException;
 
 public class ConfigurationData {
+	public Xls_Reader testDataXL = new Xls_Reader(getLoginTestDataPath());
+	public final static Xls_Reader	 notificationDataXL = new Xls_Reader(geterrorMessageExcelPath());
+	public final static int timeOut=10;
 
-	
-	public String geterrorMessageExcelPath() {
+	public static String geterrorMessageExcelPath() {
 		Properties prop =new Properties();
 		try {
 			FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
@@ -27,11 +29,11 @@ public class ConfigurationData {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for (int i = 0; i < 50; ++i) {System.out.println();}
-		return prop.getProperty("LoginTestDataPath");
+		String str =System.getProperty("user.dir")+ prop.getProperty("LoginTestDataPath");
+		return str;
 	}
 
-	public String getvalidationMessageExcelSheetName() {
+	public static String getvalidationMessageExcelSheetName() {
 		Properties prop =new Properties();
 		try {
 			FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
@@ -39,11 +41,11 @@ public class ConfigurationData {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String string =prop.getProperty("validationMessageExcelSheet"+" ");
-		return prop.getProperty("validationMessageExcelSheet");
+		String str =prop.getProperty("validationMessageExcelSheet");
+		return str;
 	}
 
-	public String getnotificationMessageExcelSheetName() {
+	public static String getnotificationMessageExcelSheetName() {
 		Properties prop =new Properties();
 		try {
 			FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
@@ -55,7 +57,7 @@ public class ConfigurationData {
 		return prop.getProperty("notificationMessageExcelSheet");
 	}
 
-	public String getvalidationMessageColName() {
+	public static String getvalidationMessageColName() {
 		Properties prop =new Properties();
 		try {
 			FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
@@ -67,7 +69,7 @@ public class ConfigurationData {
 		return prop.getProperty("validationMessageColName");
 	}
 
-	public String getnotificationMessageColName() {
+	public static String getnotificationMessageColName() {
 		Properties prop =new Properties();
 		try {
 			FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
@@ -79,9 +81,11 @@ public class ConfigurationData {
 	}
 
 
+	/*--------------------------Mail Functionality Configuaration--------------------*/	
+	public static String mailosaurAPIKey = "56Kmwh3l9UyaZhd7mAwH31M4mtFuZwZz";
+	public static String serverID = "bsgdulpk"; 
+	public static String serverDomain = "@bsgdulpk.mailosaur.net";
 
-	public Xls_Reader testDataXL = new Xls_Reader(getLoginTestDataPath());
-	public Xls_Reader	 notificationDataXL = new Xls_Reader(geterrorMessageExcelPath());
 
 	public static  String expectedNoDataToDisplayMessage = "No data is available to display";
 	public static String BA_subhead_text = "Introduction 1";
@@ -185,51 +189,54 @@ public class ConfigurationData {
 
 
 	/*--------------------------Error validation messages--------------------*/
-	public  String expectedEmptyEmailFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 6);
-	public String expectedInvalidEmailFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 7);
-	public String expectedEmptyPasswordFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 8);
-	public String expectedEmptyConfirmPasswordFieldErrorMsg =notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 11);
-	public String expectedMismatchPasswordAndConfirmPasswordFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 12);
-	public String expectedEmptyPhoneNumberValidationMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 4);
-	public String expectedEmptyOldPasswordValidationMessage	= notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 35);
-	public String expectedEmptyNewPasswordValidationMessage	= notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 36);
-	public String expectedEmptyReviewTitleValidationErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 37);
-	public String expectedEmptyReviewDescriptionValidationErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 38);
-	public String expectedEmptyUTRNumber= notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 33);
-	public String expectedInvalidPhoneNumberFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 5);;
-
+	public static  String expectedEmptyEmailFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 6);
+	public static String expectedInvalidEmailFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 7);
+	public static String expectedEmptyPasswordFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 8);
+	public static String expectedEmptyConfirmPasswordFieldErrorMsg =notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 11);
+	public static String expectedMismatchPasswordAndConfirmPasswordFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 12);
+	public static String expectedEmptyPhoneNumberValidationMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 4);
+	public static String expectedEmptyOldPasswordValidationMessage	= notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 35);
+	public static String expectedEmptyNewPasswordValidationMessage	= notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 36);
+	public static String expectedEmptyReviewTitleValidationErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 37);
+	public  static String expectedEmptyReviewDescriptionValidationErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 38);
+	public static String expectedEmptyUTRNumber= notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 33);
+	public static String expectedInvalidPhoneNumberFieldErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 5);
+	public static String expectedInvalidInvalidPhoneNumberErrorMsg = notificationDataXL.getCellData(getvalidationMessageExcelSheetName(), getvalidationMessageColName(), 5);;
+	
+	
 	/*--------------------------Notitifications messages --------------------*/
-	public String expectedNotRegisteredEmailIDNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 116);
-	public String expectedSuccessfulResetPasswordNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 117);
-	public String expectedRequestNewLinkWithin5MinNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 117);
-	public String expectedAddUserSuccessNotificationMessage = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 66);
-	public String ExpectedDuplicateEmailIDErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 2);
-	public String ExpectedDuplicatePhoneNumberErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 3);
-	public String ExpectedDuplicateCompanyNameErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 6);
-	public String ExpectedDuplicateCIN_NumberErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 4);
-	public String ExpectedDuplicateGSTIN_NumberErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 5);
-	public String expectedOldPasswordErrorNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 24);
-	public String expectedMaximumAttemptsResetPasswordNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 27);
-	public String ExpectedInvalidProfilePicUploadNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 22);
-	public String ExpectedSuccessFullEditingPersonalNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 19);
-	public String expectedIncorrectOldPasswordNotificationErrorMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 23);
-	public String expectedSuccessFullPasswordChangeNotificationErrorMsg  = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 25);
-	public String expectedIncorrectPasswordNotificationErrorMsg  = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 8);
-	public String expectedTimeDifrenceErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 26);
-	public String expectedPasswordLastThreeErrorNotificationMessage = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 24);
-	public String expectedSuccessReviewNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 28);
-	public String expectedSuccessUpdateReviewNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 29);
-	public String expectedSuccessOfflineOrderNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 59);
-	public String expectedDuplicateUTRNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 61);
-	public String expectedSuccessfulGeneratePassswordNotification  = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 123);
-	public String expectedSuccessfullVerificationCreation = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 31);
-	public String expectedAlreadyUsedEmailForVerification=  notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 33);
-	public String expectedAlreadyUsedNumberForVerification= notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 34);
-	public String expectedInsufficientCreditsForVerificationCustomer = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 37);
-	public String expectedOfflineOrdersApproveNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 108);
-	public String expectedUnregisteredNumberForVerification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 46);
+	public static String expectedNotRegisteredEmailIDNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 116);
+	public static String expectedSuccessfulResetPasswordNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 117);
+	public static String expectedRequestNewLinkWithin5MinNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 117);
+	public static String expectedAddUserSuccessNotificationMessage = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 66);
+	public static String ExpectedDuplicateEmailIDErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 2);
+	public static String ExpectedDuplicatePhoneNumberErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 3);
+	public static String ExpectedDuplicateCompanyNameErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 6);
+	public static String ExpectedDuplicateCIN_NumberErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 4);
+	public static String ExpectedDuplicateGSTIN_NumberErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 5);
+	public static String expectedOldPasswordErrorNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 24);
+	public static String expectedMaximumAttemptsResetPasswordNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 27);
+	public static String ExpectedInvalidProfilePicUploadNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 22);
+	public static String ExpectedSuccessFullEditingPersonalNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 19);
+	public static String expectedIncorrectOldPasswordNotificationErrorMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 23);
+	public static String expectedSuccessFullPasswordChangeNotificationErrorMsg  = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 25);
+	public static String expectedIncorrectPasswordNotificationErrorMsg  = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 8);
+	public static String expectedTimeDifrenceErrorNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 26);
+	public static String expectedPasswordLastThreeErrorNotificationMessage = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 24);
+	public static String expectedSuccessReviewNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 28);
+	public static String expectedSuccessUpdateReviewNotificationMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 29);
+	public static String expectedSuccessOfflineOrderNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 59);
+	public static String expectedDuplicateUTRNotifyMsg = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 61);
+	public static String expectedSuccessfulGeneratePassswordNotification  = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 123);
+	public static String expectedSuccessfullVerificationCreation = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 31);
+	public static String expectedAlreadyUsedEmailForVerification=  notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 33);
+	public static String expectedAlreadyUsedNumberForVerification= notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 34);
+	public static String expectedInsufficientCreditsForVerificationCustomer = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 37);
+	public static String expectedOfflineOrdersApproveNotification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 108);
+	public static String expectedUnregisteredNumberForVerification = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 46);
 
-	public   String expectedSuccessfulResetPassswordNotification =  notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 25);
-	public  String expectedNewAccountCreationSuccessNotificationMessage = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 7);;
+	public static String expectedSuccessfulResetPassswordNotification =  notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 25);
+	public static String expectedNewAccountCreationSuccessNotificationMessage = notificationDataXL.getCellData(getnotificationMessageExcelSheetName(), getnotificationMessageColName(), 7);
+
 
 }

@@ -18,8 +18,8 @@ public class ProfilePage extends AbstractComponents{
 	@FindBy(className = "text-capitalize") private WebElement userType;
 	
 	
-	public String getUserType() {
+	public WebElement getUserType() {
 		waitForWebElementToAppear(userType);
-		return userType.getText();
+		return userType;
 	}
 }

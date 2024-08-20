@@ -15,7 +15,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import kycee.PageEvent.DashBoardPageEvent;
 
 public class LoginPage extends AbstractComponents {
 	WebDriver driver;
@@ -46,23 +45,13 @@ public class LoginPage extends AbstractComponents {
 
 		return new DashBoardPage(driver);
 	}
+	
 	public ForgotPasswordPage gotoForgotPasswordPage() {
 		forgotPasswordPageLink.click();
 		return new ForgotPasswordPage(driver);
 	}
 
-	public void goTo() throws IOException {
-		Properties prop =new Properties();
-		FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
-		prop.load(fis);
-		String serverName=prop.getProperty("Server");
-		if (serverName.equalsIgnoreCase("QA")) {
-			driver.get("https://qa.kycee.in/login");
-		}else if (serverName.equalsIgnoreCase("DEV")) {
-			driver.get("https://dev.kycee.in/login");
-		}
-
-	}
+	
 	
 	public DashBoardPage login(String user) {
 		String User = user.toLowerCase();

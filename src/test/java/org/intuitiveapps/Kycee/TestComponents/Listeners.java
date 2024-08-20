@@ -27,7 +27,7 @@ public class Listeners extends BaseTest implements ITestListener {
 	}
 	@Override
 	public void onTestFailure(ITestResult result) {
-	extentTest.get().fail(result.getThrowable());
+		extentTest.get().fail(result.getThrowable());
 		try {
 			driver= (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
 		} catch (Exception e1) {
@@ -42,14 +42,19 @@ public class Listeners extends BaseTest implements ITestListener {
 			e.printStackTrace();
 		}
 		extentTest.get().addScreenCaptureFromPath(dest,result.getMethod().getMethodName());
-		
+
 	}
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		
+
 	}
+
 	@Override
 	public void onFinish(ITestContext result) {
+		extent.flush();
 	}
-	
+
+	public  void logExtentReport(ITestResult result,String status) {
+		extentTest.get().addScreenCaptureFromPath(status,result.getMethod().getMethodName());
+	}
 }

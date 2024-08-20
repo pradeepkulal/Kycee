@@ -6,7 +6,7 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="org.intuitiveapps.Kycee.Tests.LoginTest"/>
+      <class name="org.intuitiveapps.Kycee.Tests.SignUpPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

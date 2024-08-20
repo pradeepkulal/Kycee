@@ -18,8 +18,10 @@ public class ForgotPasswordPage extends AbstractComponents {
 	@FindBy (xpath = "//h3[text()='Forgot Password']")
 	private WebElement forgotPasswordPageTiitle;
 	
-	public boolean isTitleDisplayed() {
-		return awaitForElementPresence(driver, forgotPasswordPageTiitle, 5);
+	
+	public WebElement isTitleDisplayed() {
+		 awaitForElementPresence(driver, forgotPasswordPageTiitle, timeOut);
+		 return forgotPasswordPageTiitle;
 	}
 
 }

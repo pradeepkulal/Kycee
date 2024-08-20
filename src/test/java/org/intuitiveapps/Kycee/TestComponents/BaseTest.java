@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.intuitiveapps.Kycee.PageObjects.HomePage;
 import org.intuitiveapps.Kycee.PageObjects.LoginPage;
+import org.intuitiveapps.Kycee.Resources.ExtentReporterNG;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,15 +20,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.javafaker.Faker;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.intuitiveapps.Kycee.Utilities.EmailReader;
 
 public class BaseTest {
 	public WebDriver driver;
-	public LoginPage loginPage;
+	public HomePage homePage;
 	public WebDriver emailDriver;
+	public static Faker data;
+	public static EmailReader emailReader;
+
+	
 	public WebDriver intializeBrowser() throws IOException {
 		Properties prop =new Properties();
 		FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\org\\intuitiveapps\\Kycee\\Resources\\GlobalData.properties");
@@ -58,11 +69,13 @@ public class BaseTest {
 		return data;
 	}
 	@BeforeMethod(alwaysRun = true)
-	public LoginPage launchApplication() throws IOException {
+	public HomePage launchApplication() throws IOException {
+		data = new Faker();
+		emailReader = new EmailReader();
 		driver =intializeBrowser();
-		loginPage=new LoginPage(driver);
-		loginPage.goTo();
-		return loginPage;
+		homePage =new HomePage(driver);
+		homePage.goTo();
+		return homePage;
 	}
 	
 	@AfterMethod(alwaysRun = true)
@@ -77,6 +90,5 @@ public class BaseTest {
 		FileUtils.copyFile(source, dest);
 		return System.getProperty("user.dir")+"//screnshots//"+testCaseName+".png";
 	}
-	
 	
 }
